@@ -1,4 +1,4 @@
-# custom-annotation
+# Custom-annotation in Spring Boot
 example of custom field level annotation in spring boot
 
 Endpoint: POST http://localhost:8080/annotation
