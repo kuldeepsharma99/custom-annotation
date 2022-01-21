@@ -21,7 +21,7 @@ public class CheckScaleValidator implements ConstraintValidator<CheckScale, Doub
 		if(BigDecimal.valueOf(value).scale() <= max) {
 			return Boolean.TRUE;
 		}
-		throw new RuntimeErrorException(null, message);
+		throw new RuntimeErrorException(null, message);  // throw your custom exception here
 	}
 
 }

@@ -12,18 +12,19 @@ import jdk.jfr.Description;
 
 /**
  * 
- * @author Kuldeep Sharma
- * {@link Description} : Should be used only for Double.class
+ * @author Kuldeep Sharma {@link Description} : Should be used only for
+ *         Double.class
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 @Constraint(validatedBy = CheckScaleValidator.class)
 public @interface CheckScale {
-	
+
 	String message() default "Invalid Value";
+
 	int max();
-	
+
 	public Class<?>[] groups() default {};
-    //represents additional information about annotation
-    public Class<? extends Payload>[] payload() default {};
+
+	public Class<? extends Payload>[] payload() default {};
 }
