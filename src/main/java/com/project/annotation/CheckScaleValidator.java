@@ -2,9 +2,10 @@ package com.project.annotation;
 
 import java.math.BigDecimal;
 
-import javax.management.RuntimeErrorException;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+
+import org.springframework.util.ObjectUtils;
 
 public class CheckScaleValidator implements ConstraintValidator<CheckScale, Double> {
 
@@ -18,10 +19,10 @@ public class CheckScaleValidator implements ConstraintValidator<CheckScale, Doub
 	
 	@Override
 	public boolean isValid(Double value, ConstraintValidatorContext context) {
-		if(BigDecimal.valueOf(value).scale() <= max) {
+		if(ObjectUtils.isEmpty(value) || BigDecimal.valueOf(value).scale() <= max) {
 			return Boolean.TRUE;
 		}
-		throw new RuntimeErrorException(null, message);  // throw your custom exception here
+		throw new RuntimeException(message);  // throw your custom exception here
 	}
 
 }
